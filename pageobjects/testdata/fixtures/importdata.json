@@ -1,0 +1,6 @@
+[
+   { "id": "7389", "model_id": "M57389", "description": "Test product 1", "price": 834.09},
+    {"id": "7390", "model_id": "M67390", "description": "Test product 2", "price": 84.09},
+    {"id": "7391", "model_id": "M77391", "description": "Test product 3", "price": 52.09},
+    {"id": "7392", "model_id": "M77392", "description": "Test product 4", "price": 100}
+]

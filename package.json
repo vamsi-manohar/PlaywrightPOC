@@ -1,0 +1,21 @@
+{
+  "name": "playwrightJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "regression": "npx playwright test",
+    "firefoxTests": "npx playwright test --grep @Reg --config=playwright.config1.js --project=firefox",
+    "chromeTests": "npx playwright test --grep @Reg --config=playwright.config1.js --project=chrome",
+    "safariTests": "npx playwright test --grep @Reg --config=playwright.config1.js --project=safari",
+    "allure-tests": "npx playwright test --grep @Reg --config=playwright.config1.js --project=safari --reporter=line,allure-playwright",
+    "all": "npx playwright test --grep @Reg --config=playwright.config1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.29.2",
+    "allure-playwright": "^2.0.0-beta.24"
+  }
+}
