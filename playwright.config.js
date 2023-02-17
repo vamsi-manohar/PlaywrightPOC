@@ -1,5 +1,5 @@
 // @ts-check
-const { devices } = require('@playwright/test');
+import { devices } from '@playwright/test';
 const config = {
   testDir: './tests',
   timeout: 120 * 1000,
@@ -19,4 +19,4 @@ const config = {
 
   
 }
-module.exports = config;
+export default config;

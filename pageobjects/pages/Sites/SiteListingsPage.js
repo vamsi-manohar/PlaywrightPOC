@@ -23,6 +23,11 @@ class SiteListingsPage{
 
 
     }
+
+    async clickOnSiteByName(siteName) {
+        const xpath = "//span[normalize-space()='" + siteName + "']";
+        await this.page.locator(xpath).click();
+    }
 }
 
 module.exports = {SiteListingsPage}
