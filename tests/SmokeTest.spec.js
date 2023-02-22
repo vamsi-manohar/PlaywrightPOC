@@ -16,6 +16,7 @@ test('Product Count Check', async ({ page }) => {
     const accountLevelUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Account Level Url : ' + accountLevelUrl);
     expect(accountLevelUrl).toContain('account');
+    await poManager.getAccountOverviewPage().validateAccountUiTitle();
     var breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
     expect(breadcrumb).toEqual(username);
 
@@ -30,6 +31,7 @@ test('Product Count Check', async ({ page }) => {
 
     //validate site dashboard
     await poManager.getSiteListingsPage().clickOnSite();
+    await poManager.getCommonPage().validateUiCaptionInsideFrame('Dashboard');
     //await poManager.getSiteListingsPage().clickOnSiteByName('Client Tools Inc.');
     const siteDashboardUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Site Dashboard Url : ' + siteDashboardUrl);
@@ -37,11 +39,13 @@ test('Product Count Check', async ({ page }) => {
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbTextInsideFrame();
     expect(breadcrumb).toEqual('Dashboard');
 
-    // await poManager.getCommonPage().hoverOnPupLogo();
-    // await poManager.getCommonPage().openDataView();
-    // await poManager.getCommonPage().validateUiCaption('Data View');
-
-    // const dataViewUrl = await poManager.getCommonPage().getCurrentPageUrl();
-    // console.log('Data View Url : ' + dataViewUrl);
-    // expect(dataViewUrl).toContain('data-view');
+    //valudate data view
+    await poManager.getCommonPage().hoverOnPupLogo();
+    await poManager.getCommonPage().openDataView();
+    await poManager.getCommonPage().validateUiCaption('Data View');
+    const dataViewUrl = await poManager.getCommonPage().getCurrentPageUrl();
+    console.log('Data View Url : ' + dataViewUrl);
+    expect(dataViewUrl).toContain('data-view');
+    breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
+    expect(breadcrumb).toEqual('Data View');
 });
