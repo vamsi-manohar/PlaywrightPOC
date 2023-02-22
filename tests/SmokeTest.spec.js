@@ -4,6 +4,7 @@ import { POManager } from '../pageobjects/POManager';
 const details = JSON.parse(JSON.stringify(require('../pageobjects/testdata/logindetails.json')));
 
 test('Product Count Check', async ({ page }) => {
+    //login
     const username = details[2].username;
 
     const poManager = new POManager(page);
@@ -39,7 +40,7 @@ test('Product Count Check', async ({ page }) => {
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbTextInsideFrame();
     expect(breadcrumb).toEqual('Dashboard');
 
-    //valudate data view
+    //validate data view
     await poManager.getCommonPage().hoverOnPupLogo();
     await poManager.getCommonPage().openDataView();
     await poManager.getCommonPage().validateUiCaption('Data View');
@@ -48,4 +49,14 @@ test('Product Count Check', async ({ page }) => {
     expect(dataViewUrl).toContain('data-view');
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
     expect(breadcrumb).toEqual('Data View');
+
+    //validate dataflow
+    await poManager.getCommonPage().hoverOnPupLogo();
+    await poManager.getCommonPage().openDataFlow();
+    await poManager.getCommonPage().validateUiCaption('Dataflow');
+    const dataFlowUrl = await poManager.getCommonPage().getCurrentPageUrl();
+    console.log('Dataflow Url : ' + dataFlowUrl);
+    expect(dataFlowUrl).toContain('dataflow');
+    breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
+    expect(breadcrumb).toEqual('Dataflow');
 });
