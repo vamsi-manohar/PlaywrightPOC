@@ -18,7 +18,8 @@ class LoginPage {
     {
         //const browser = await chromium.launch({ headless: false, slowMo: 300 });
         //const page = await browser.newPage();
-        await this.page.goto("https://staging-platform.productsup.com/login");
+        //await this.page.goto("https://staging-platform.productsup.com/login");
+        await this.page.goto("https://platform.productsup.com/login");
     }
 
 

@@ -1,11 +1,11 @@
 const { LoginPage } = require("./LoginPage").default;
-const { AccountOverviewPage } = require("./pages/AccountOverviewPage");
+const { AccountOverviewPage } = require("./pages/AccountOverviewPage").default;
 const { CommonPage } = require("./pages/CommonPage").default;
 const { BasicUIActions } = require("./pages/BasicUIActions").default;
 const { DatasourcesPage } = require("./pages/Datasources/DatasourcesPage");
 const { DataViewPage } = require("./pages/DataViewPage").default;
 const {ProjectsListingsPage} = require("./pages/Projects/ProjectsListingsPage");
-const { SiteListingsPage } = require("./pages/Sites/SiteListingsPage");
+const { SiteListingsPage } = require("./pages/Sites/SiteListingsPage").default;
 
 class POManager
 {
