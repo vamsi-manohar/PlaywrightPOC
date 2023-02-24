@@ -44,14 +44,14 @@ class CommonPage {
     async validateUiCaption(caption) {
         await this.page.waitForLoadState('networkidle');
         console.log(caption + ' UI Title : ' + await this.uiCaption.innerText());
-        expect(await this.uiCaption.innerText()).toEqual(caption);
+        expect.soft(await this.uiCaption.innerText()).toEqual(caption);
     }
 
     async validateUiCaptionInsideFrame(caption) {
         await this.page.waitForLoadState('networkidle');
         var uiTitle = await this.uiCaptionInsideFrame.nth(0).innerText();
         console.log(caption + ' UI Title : ' + uiTitle);
-        expect(uiTitle).toEqual(caption);
+        expect.soft(uiTitle).toEqual(caption);
     }
 
     async getBreadcrumbs() {

@@ -32,7 +32,7 @@ class AccountOverviewPage
 
     async validateAccountUiTitle() {
         console.log('Platform landing UI title : ' + await this.uiTitle.innerText());
-        expect(await this.uiTitle.innerText()).toEqual('Projects');
+        expect.soft(await this.uiTitle.innerText()).toEqual('Projects');
     }
     
 }

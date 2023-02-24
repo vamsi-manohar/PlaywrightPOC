@@ -3,7 +3,7 @@ import { POManager } from '../pageobjects/POManager';
 
 const details = JSON.parse(JSON.stringify(require('../pageobjects/testdata/logindetails.json')));
 
-test('Product Count Check', async ({ page }) => {
+test('Smoke Test Suite', async ({ page }) => {
     //login
     const username = details[2].username;
     const projectName = 'Automation Sites';
@@ -18,19 +18,19 @@ test('Product Count Check', async ({ page }) => {
     await poManager.getAccountOverviewPage().selectAccount(username);
     const accountLevelUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Account Level Url : ' + accountLevelUrl);
-    expect(accountLevelUrl).toContain('account');
+    expect.soft(accountLevelUrl).toContain('account');
     await poManager.getAccountOverviewPage().validateAccountUiTitle();
     var breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
-    expect(breadcrumb).toEqual(username);
+    expect.soft(breadcrumb).toEqual(username);
 
     //validate project dashboard
     await poManager.getProjectListingsPage().clickOnProjectByName(projectName);
     await poManager.getCommonPage().validateUiCaption(projectName);
     const projectDashboardUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Project Dashboard Url : ' + projectDashboardUrl);
-    expect(projectDashboardUrl).toContain('projects');
+    expect.soft(projectDashboardUrl).toContain('projects');
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
-    expect(breadcrumb).toContain(projectName);
+    expect.soft(breadcrumb).toContain(projectName);
 
     //validate site dashboard
     await poManager.getSiteListingsPage().clickOnSite();
@@ -38,9 +38,9 @@ test('Product Count Check', async ({ page }) => {
     //await poManager.getSiteListingsPage().clickOnSiteByName('Client Tools Inc.');
     const siteDashboardUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Site Dashboard Url : ' + siteDashboardUrl);
-    expect(siteDashboardUrl).toContain("site\/dashboard");
+    expect.soft(siteDashboardUrl).toContain("site\/dashboard");
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbTextInsideFrame();
-    expect(breadcrumb).toEqual('Dashboard');
+    expect.soft(breadcrumb).toEqual('Dashboard');
 
     //validate data sources
     await poManager.getCommonPage().hoverOnPupLogo();
@@ -48,9 +48,9 @@ test('Product Count Check', async ({ page }) => {
     await poManager.getCommonPage().validateUiCaption('Data Sources');
     const dataSourcesUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Datasources Url : ' + dataSourcesUrl);
-    expect(dataSourcesUrl).toContain("configure-dataflow\/import");
+    expect.soft(dataSourcesUrl).toContain("configure-dataflow\/import");
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
-    expect(breadcrumb).toEqual('Data Sources');
+    expect.soft(breadcrumb).toEqual('Data Sources');
 
     //validate data view
     await poManager.getCommonPage().hoverOnPupLogo();
@@ -58,9 +58,9 @@ test('Product Count Check', async ({ page }) => {
     await poManager.getCommonPage().validateUiCaption('Data View');
     const dataViewUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Data View Url : ' + dataViewUrl);
-    expect(dataViewUrl).toContain('data-view');
+    expect.soft(dataViewUrl).toContain('data-view');
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
-    expect(breadcrumb).toEqual('Data View');
+    expect.soft(breadcrumb).toEqual('Data View');
 
     //validate dataflow
     await poManager.getCommonPage().hoverOnPupLogo();
@@ -68,9 +68,9 @@ test('Product Count Check', async ({ page }) => {
     await poManager.getCommonPage().validateUiCaption('Dataflow');
     const dataFlowUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Dataflow Url : ' + dataFlowUrl);
-    expect(dataFlowUrl).toContain('dataflow');
+    expect.soft(dataFlowUrl).toContain('dataflow');
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
-    expect(breadcrumb).toEqual('Dataflow');
+    expect.soft(breadcrumb).toEqual('Dataflow');
 
     //validate exports a/b
     await poManager.getCommonPage().hoverOnPupLogo();
@@ -78,7 +78,7 @@ test('Product Count Check', async ({ page }) => {
     await poManager.getCommonPage().validateUiCaption('Exports for ' + siteName);
     const exportABUrl = await poManager.getCommonPage().getCurrentPageUrl();
     console.log('Exports A/B Url : ' + exportABUrl);
-    expect(exportABUrl).toContain('export');
+    expect.soft(exportABUrl).toContain('export');
     breadcrumb = await poManager.getCommonPage().getLastBreadCrumbText();
-    expect(breadcrumb).toEqual('Exports A/B');
+    expect.soft(breadcrumb).toEqual('Exports A/B');
 });
