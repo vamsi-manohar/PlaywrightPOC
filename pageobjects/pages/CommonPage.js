@@ -7,9 +7,22 @@ class CommonPage {
         const framePage = this.page.frameLocator("//iframe[@id='frame']");
         this.pupLogo = this.page.locator('#logo-inverse');
         this.dataView = this.page.locator("//span[@class='title'][normalize-space()='Data View']");
+        this.datamap = this.page.locator("//span[@class='title'][normalize-space()='Data Map']");
+        this.authentication = this.page.locator("//span[normalize-space()='Authentication']");
+        this.dataServices = this.page.locator("//span[@class='title'][normalize-space()='Data Services']");
         this.dataflow = this.page.locator("//span[@class='title'][normalize-space()='Dataflow']");
         this.exportAB = this.page.locator("//span[normalize-space()='Exports A/B']");
+        this.designer = this.page.locator("//span[normalize-space()='Designer']");
         this.dataSources = this.page.locator("//span[@class='title'][normalize-space()='Data Sources']");
+        this.lists = this.page.locator("//span[normalize-space()='Lists']");
+        this.roi = this.page.locator("//span[normalize-space()='ROI Strategy']");
+        this.reporting = this.page.locator("//span[normalize-space()='Reporting']");
+        this.errorLog = this.page.locator("//span[@class='title'][normalize-space()='Error Log']");
+        this.monitor = this.page.locator("//span[normalize-space()='Monitor']");
+        this.activity = this.page.locator("//span[normalize-space()='Activity']");
+        this.tracking = this.page.locator("//span[normalize-space()='Tracking']");
+        this.settings = this.page.locator("//span[normalize-space()='Settings']");
+
         this.uiCaption = this.page.locator("span[class='caption']");
         this.uiCaptionInsideFrame = framePage.locator("span[class='caption']");
 
@@ -26,6 +39,21 @@ class CommonPage {
         await this.page.waitForTimeout(5000);
     }
 
+    async openDataMap() {
+        await this.datamap.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openAuthentication() {
+        await this.authentication.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openDataServices() {
+        await this.dataServices.click();
+        await this.page.waitForTimeout(5000);
+    }
+
     async openDataView() {
         await this.dataView.click();
         await this.page.waitForTimeout(5000);
@@ -38,6 +66,51 @@ class CommonPage {
 
     async openExportAB() {
         await this.exportAB.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openDesigner() {
+        await this.designer.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openLists() {
+        await this.lists.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openRoi() {
+        await this.roi.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openReporting() {
+        await this.reporting.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openErrorLog() {
+        await this.errorLog.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openMonitor() {
+        await this.monitor.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openActivity() {
+        await this.activity.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openTracking() {
+        await this.tracking.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async openSettings() {
+        await this.settings.nth(0).click();
         await this.page.waitForTimeout(5000);
     }
 

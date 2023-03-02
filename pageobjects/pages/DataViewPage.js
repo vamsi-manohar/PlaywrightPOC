@@ -39,13 +39,15 @@ class DataViewPage {
         console.log('selected channel : ' + selectedChannel);
         var expectedChannelName = await this.exportChannels.nth(elementsCount - 1).innerText();
         expectedChannelName = expectedChannelName.trim();
-        expect(selectedChannel).toEqual(expectedChannelName);
+        expect.soft(selectedChannel).toEqual(expectedChannelName);
     }
 
     async hamburgerMenuOperation() {
         await this.hamburgerIcon.click();
-        console.log('right drawer default title : ' + await this.rightDrawerHeading.innerText());
-        expect(await this.rightDrawerHeading.innerText()).toEqual('Product Quickfilter');
+        var drawerTitle = await this.rightDrawerHeading.innerText();
+        drawerTitle = drawerTitle.trim();
+        console.log('right drawer default title : ' + drawerTitle);
+        expect.soft(drawerTitle).toEqual('Product Quickfilter');
     }
 
     async exportedItemValidation() {

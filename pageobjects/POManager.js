@@ -2,6 +2,7 @@ const { LoginPage } = require("./LoginPage").default;
 const { AccountOverviewPage } = require("./pages/AccountOverviewPage").default;
 const { CommonPage } = require("./pages/CommonPage").default;
 const { BasicUIActions } = require("./pages/BasicUIActions").default;
+const { ActivityPage } = require("./pages/ActivityPage").default;
 const { DatasourcesPage } = require("./pages/Datasources/DatasourcesPage");
 const { DataViewPage } = require("./pages/DataViewPage").default;
 const {ProjectsListingsPage} = require("./pages/Projects/ProjectsListingsPage");
@@ -20,6 +21,7 @@ class POManager
         this.basicUIActions = new BasicUIActions(this.page);
         this.commonPage = new CommonPage(this.page);
         this.dataViewPage = new DataViewPage(this.page);
+        this.activityPage = new ActivityPage(this.page);
     }
 
 
@@ -61,6 +63,10 @@ class POManager
 
     getDataViewPage() {
         return this.dataViewPage;
+    }
+
+    getActivityPage() {
+        return this.activityPage;
     }
 }
 
