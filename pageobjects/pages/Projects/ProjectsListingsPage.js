@@ -19,13 +19,13 @@ class ProjectsListingsPage
         this.projectNameTextBox=page.locator("#name");
         this.saveProjectBtn=page.locator("#js-save-project");
 
-        
-
+        this.availableProjects = page.locator("table td a[class*='project-name']");
     }
 
 
     async validateUserOnProjectListingsPage(username)
     {
+        console.log('user name : ' + await this.accountBreadcrumb.innerText());
         await expect(this.accountBreadcrumb).toContainText(username);
        
     }
@@ -76,6 +76,10 @@ class ProjectsListingsPage
 
     }
 
+    async clickOnProjectByName(projectName) {
+        const xpath = "//span[normalize-space()='" + projectName + "']";
+        await this.page.locator(xpath).click();
+    }
 
 }
 

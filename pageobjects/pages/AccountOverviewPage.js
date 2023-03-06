@@ -8,6 +8,7 @@ class AccountOverviewPage
     {
         this.page=page;
         this.accounts= page.locator("tr[ng-repeat*='account']");
+        this.uiTitle = page.locator("//span[@class='caption ng-binding']");
     }
 
 
@@ -29,8 +30,12 @@ class AccountOverviewPage
       
     }
 
+    async validateAccountUiTitle() {
+        console.log('Platform landing UI title : ' + await this.uiTitle.innerText());
+        expect.soft(await this.uiTitle.innerText()).toEqual('Projects');
+    }
     
 }
 
 
-module.exports = {AccountOverviewPage};
+export default { AccountOverviewPage };

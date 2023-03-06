@@ -1,4 +1,5 @@
 const {test,expect} = require('@playwright/test');
+const { default: LoginPage } = require('../pageobjects/LoginPage');
 const { AccountOverviewPage } = require('../pageobjects/pages/AccountOverviewPage');
 //onst {LoginPage} = require('../pageobjects/LoginPage');
 const {POManager} = require('../pageobjects/POManager');

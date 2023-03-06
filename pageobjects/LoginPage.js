@@ -1,14 +1,14 @@
-class LoginPage{
+class LoginPage {
 
 
     constructor(page)
     {
-        this.page=page;
-        const framePage=this.page.frameLocator("#frame");
-        this.username=framePage.locator("input[name='username']");
-        this.nextButton=framePage.locator("button:has-text('Next')");
-        this.password=framePage.locator("input[name*='password']");
-        this.loginButton=framePage.locator("button:has-text('Log In')");
+        this.page = page;
+        const framePage = this.page.frameLocator("#frame");
+        this.username = framePage.locator("input[name='username']");
+        this.nextButton = framePage.locator("button:has-text('Next')");
+        this.password = framePage.locator("input[name*='password']");
+        this.loginButton = framePage.locator("button:has-text('Log In')");
     }
 
 
@@ -16,7 +16,10 @@ class LoginPage{
 
     async goTo()
     {
-        await this.page.goto("https://staging-platform.productsup.com/login");
+        //const browser = await chromium.launch({ headless: false, slowMo: 300 });
+        //const page = await browser.newPage();
+        //await this.page.goto("https://staging-platform.productsup.com/login");
+        await this.page.goto("https://platform.productsup.com/login");
     }
 
 
@@ -40,4 +43,4 @@ class LoginPage{
 
 }
 
-module.exports = {LoginPage};
+export default { LoginPage };
