@@ -1,0 +1,1 @@
+Running @exports Validate whether user is able to export data from the platform

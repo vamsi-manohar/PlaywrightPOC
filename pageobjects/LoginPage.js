@@ -16,12 +16,9 @@ class LoginPage {
 
     async goTo()
     {
-        //const browser = await chromium.launch({ headless: false, slowMo: 300 });
-        //const page = await browser.newPage();
-        //await this.page.goto("https://staging-platform.productsup.com/login");
         await this.page.goto("https://platform.productsup.com/login");
+        return this;
     }
-
 
     async validLogin(usernameData,passwordData)
     {
@@ -31,13 +28,18 @@ class LoginPage {
            await this.nextButton.click();
            await this.password.type(passwordData);
            await this.loginButton.click();
-           
-           
-           //await this.page.pause();
-          
-
+           await this.page.waitForLoadState('networkidle')
+        
 
     }
+
+    async getAccountDashboardPageTitle()
+    {
+        const title = await this.pageCaption.textContent();
+        return title;
+     
+    }
+
 
 
 

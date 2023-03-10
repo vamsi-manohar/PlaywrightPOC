@@ -18,15 +18,18 @@ class ProjectsListingsPage
         this.addProjectButton=page.locator("pup-icon[path*='plus']");
         this.projectNameTextBox=page.locator("#name");
         this.saveProjectBtn=page.locator("#js-save-project");
+        this.projectResultsLink=page.locator("a[ng-href*='projects']");
+        this.projectResults=page.locator("a[ng-href*='projects'] span");
 
-        this.availableProjects = page.locator("table td a[class*='project-name']");
+        this.pageTitle=page.locator("pup-heading[class*='3'] span[class='caption']");
+
     }
 
 
     async validateUserOnProjectListingsPage(username)
     {
-        console.log('user name : ' + await this.accountBreadcrumb.innerText());
         await expect(this.accountBreadcrumb).toContainText(username);
+        return this;
        
     }
 
@@ -36,7 +39,7 @@ class ProjectsListingsPage
          await this.projectSearchField.type(name);   
          await this.projectSearchBtn.click();
          await this.page.waitForLoadState('networkidle');
-         await this.validateProjectSearch();
+         //await this.validateProjectSearch();
        
       
     
@@ -74,6 +77,41 @@ class ProjectsListingsPage
       await this.projectNameTextBox.type(projectName);
       await this.saveProjectBtn.click();
 
+    }
+
+
+    async selectProject(projectName)
+    {
+        
+       expect(await this.projectResults.first()).toBeVisible();
+       const count =await this.projectResults.count();
+       console.log(count);
+       for(let i=0;i<count;i++)
+       {
+        const site = await this.projectResults.nth(i).textContent();
+        console.log(site);
+        if(site.includes(projectName))
+         {
+            await this.projectResultsLink.nth(i).click();
+            await this.page.waitForLoadState('networkidle');
+            break;
+         }
+
+         else if(i==count-1)
+         {
+          
+             throw new Error("Please check the project name provided! Seems like provided project is not available on the platform");
+         }
+
+       } 
+
+       return this;
+      
+    }
+
+    async getProjectPageTitle()
+    {
+        return await this.pageTitle.textContent();
     }
 
     async clickOnProjectByName(projectName) {

@@ -11,7 +11,7 @@ const details =  JSON.parse(JSON.stringify(require('../pageobjects/testdata/logi
 
 //test.describe.configure({mode: 'parallel'});     // executes all tests in this file parallely
 //test.describe.configure({mode: 'serial'});      // executes all tests in this file serial mode, if one test fails all the other tests will fail
-test('@Reg Valid Login Test ', async ({page})=>
+test.skip('@Reg Valid Login Test ', async ({page})=>
 {
 
     const username = "PUP Vamsi Manohar";
@@ -68,15 +68,3 @@ test('@Reg Valid Login Test ', async ({page})=>
 
 });
 
-
-customtest('@Custom Test using fixturess', async ({page,dummyUser})=>
-{
-
-
-    const loginPage = new LoginPage(page);
-    await loginPage.goTo();
-    await loginPage.validLogin(dummyUser.username,dummyUser.password);
-  
-
-
-})

@@ -7,6 +7,14 @@ const { DatasourcesPage } = require("./pages/Datasources/DatasourcesPage");
 const { DataViewPage } = require("./pages/DataViewPage").default;
 const {ProjectsListingsPage} = require("./pages/Projects/ProjectsListingsPage");
 const { SiteListingsPage } = require("./pages/Sites/SiteListingsPage").default;
+const {SideNavigationMenu} = require("./pages/SideNavigationMenu");
+const { ExportsOverviewPage } = require("./pages/Exports/ExportOverviewPage");
+const { PlatformActions } = require("./pages/PlatformActions");
+const { DataflowOverview } = require("./pages/Dataflow/DataflowOverview");
+const {DashboardPage} = require("./pages/Sites/DashboardPage");
+const {ErrorLogOverview} = require ("./pages/ErrorLog/ErrorLogOverview");
+const { AppCommunication } = require("./pages/App-communication/AppCommunication");
+
 
 class POManager
 {
@@ -22,6 +30,13 @@ class POManager
         this.commonPage = new CommonPage(this.page);
         this.dataViewPage = new DataViewPage(this.page);
         this.activityPage = new ActivityPage(this.page);
+        this.sideNavigationsMenu=new SideNavigationMenu(this.page);
+        this.exportsPage=new ExportsOverviewPage(this.page);
+        this.dashboardPage= new DashboardPage(this.page);
+        this.plaformActions= new PlatformActions(this.page);
+        this.dataflowPage= new DataflowOverview(this.page);
+        this.errorLogPage=new ErrorLogOverview(this.page);
+        this.appCommunication= new AppCommunication(this.page);
     }
 
 
@@ -67,6 +82,45 @@ class POManager
 
     getActivityPage() {
         return this.activityPage;
+    }
+
+    getPlatformActions()
+    {
+        return this.plaformActions;
+    }
+
+
+    getDataflowPage()
+    {
+        return this.dataflowPage;
+    }
+
+
+    getSideNavigationMenu()
+    {
+        return this.sideNavigationsMenu;
+    }
+
+    getExportsPage()
+    {
+        return this.exportsPage;
+    }
+
+    getDashboardPage()
+    {
+        return this.dashboardPage;
+    }
+
+    getErrorLogPage()
+
+    {
+        return this.errorLogPage;
+        
+    }
+
+    getAppCommunicationsPage()
+    {
+        return this.appCommunication;
     }
 }
 
