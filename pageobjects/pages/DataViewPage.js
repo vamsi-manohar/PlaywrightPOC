@@ -34,6 +34,7 @@ class DataViewPage {
 
         await this.exportChannels.nth(elementsCount - 1).click();
         await this.page.waitForLoadState('networkidle');
+        await this.page.waitForTimeout(3000);
         var selectedChannel = await this.channelDropDownText.nth(0).innerText();
         selectedChannel = selectedChannel.trim();
         console.log('selected channel : ' + selectedChannel);
@@ -44,6 +45,7 @@ class DataViewPage {
 
     async hamburgerMenuOperation() {
         await this.hamburgerIcon.click();
+        await this.page.waitForTimeout(3000);
         var drawerTitle = await this.rightDrawerHeading.innerText();
         drawerTitle = drawerTitle.trim();
         console.log('right drawer default title : ' + drawerTitle);
@@ -61,7 +63,7 @@ class DataViewPage {
         var exportedItems = await this.productExportCounts.nth(1).innerText();
         var skippedItems = await this.productExportCounts.nth(2).innerText();
 
-        allItems = parseFloat(allItems.replaceAll(',', ''));
+        allItems = parseFloat(allItems.replaceAll('/,/g', ''));
         exportedItems = parseFloat(exportedItems.replaceAll(',', ''));
         skippedItems = parseFloat(skippedItems.replaceAll(',', ''));
 

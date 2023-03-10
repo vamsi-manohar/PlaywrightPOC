@@ -1,14 +1,10 @@
 [
+    
     {
         "username" : "sunghill.patruni+automation@productsup.com",
         "password" : "%%TestAutomation%%12345!!"
     },
-
-    {
-        "username" : "vamsi.manohar@productsup.com",
-        "password" : "Evolve@1996"
-    },
-
+    
     {
         "email": "bashiul.alam@productsup.com",
         "username": "PUP Bashiul Alam",

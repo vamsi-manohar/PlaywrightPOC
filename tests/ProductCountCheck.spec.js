@@ -14,12 +14,12 @@ const details = JSON.parse(JSON.stringify(require('../pageobjects/testdata/login
 //         await page.close();
 //       });
 
-test('Product Count Check', async ({ page }) => {
-        const username = details[2].username;
+test('@T Product Count Check', async ({ page }) => {
+        const username = details[1].username;
 
         const poManager = new POManager(page);
         await poManager.getLoginPage().goTo();
-        await poManager.getLoginPage().validLogin(details[2].email, details[2].password);
+        await poManager.getLoginPage().validLogin(details[1].email, details[1].password);
         await page.waitForLoadState('networkidle');
         await poManager.getAccountOverviewPage().selectAccount(username);
         await poManager.getProjectListingsPage().validateUserOnProjectListingsPage(username);

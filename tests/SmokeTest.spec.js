@@ -7,15 +7,15 @@ const menuItems = JSON.parse(JSON.stringify(require('../pageobjects/testdata/men
 const breadcrumbs = JSON.parse(JSON.stringify(require('../pageobjects/testdata/breadcrumbs.json')));
 const url = JSON.parse(JSON.stringify(require('../pageobjects/testdata/urltexts.json')));
 
-test('Smoke Test Suite', async ({ page }) => {
+test('@Z Smoke Test Suite', async ({ page }) => {
     //login
-    const username = details[2].username;
+    const username = details[1].username;
     const projectName = projectDetails[0].projectName;
     const siteName = projectDetails[0].siteName;
 
     const poManager = new POManager(page);
     await poManager.getLoginPage().goTo();
-    await poManager.getLoginPage().validLogin(details[2].email, details[2].password);
+    await poManager.getLoginPage().validLogin(details[1].email, details[1].password);
     await page.waitForLoadState('networkidle');
 
     //validate account level
