@@ -1,1 +1,0 @@
-sumOfExportedAndSkipped : 1000

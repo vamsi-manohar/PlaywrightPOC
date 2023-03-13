@@ -17,6 +17,7 @@ let beforePage;
 test.beforeAll(async({browser})=>
 {
       
+        console.log("Tets staredvdv");
         const context =  await browser.newContext({viewport: null});
         const page = await context.newPage();
 
@@ -32,8 +33,11 @@ test.beforeAll(async({browser})=>
         // await poManager.getDashboardPage().isOnDashboardPage();
 
         await context.storageState({path: 'new_state.json'});
+        await page.close();
         await context.close();
-        webContext = await browser.newContext({storageState: 'new_state.json'});
+     
+        webContext = await browser.newContext({storageState: 'new_state.json',
+    viewport: null});
 
      
 });
@@ -52,6 +56,7 @@ test.beforeEach(async()=>
     expect(await poManager.getProjectListingsPage().getProjectPageTitle()).toBe(testData.project);
     await poManager.getSiteListingsPage().selectSite(testData.site);
     await poManager.getDashboardPage().isOnDashboardPage();
+  
  
   
 });
@@ -80,6 +85,7 @@ test('@demo services', async () => {
     const poManager = new POManager(beforePage);
     await (await poManager.getSideNavigationMenu().navigateToDataservicesPage()).isOnDataServicesPage();
     await assertHelpPage(beforePage);
+    
 });
 
 
@@ -103,29 +109,16 @@ test('@demo Dataflow', async ({browser}) => {
 
 test.afterEach(async()=>
 {
-    beforePage.close();
+    await beforePage.close();
   
 });
 
 
 
-
-
 const assertHelpPage = async(page) => 
 {
+   
     const text = await (await new AppCommunication(page).openHelpLink()).navigateToHelpCenter();
     expect(text).toBe(assertion.Communication.helpCenter);
 }
 
-const selectSite = async()=>
-{
-    const beforePage = await webContext.newPage();
-    const poManager = new POManager(beforePage);
-    //await (await poManager.getLoginPage().goTo()).validLogin(details[0].username, details[0].password);
-    await poManager.getLoginPage().goTo();
-    await poManager.getProjectListingsPage().selectProject(testData.project);
-    expect(await poManager.getProjectListingsPage().getProjectPageTitle()).toBe(testData.project);
-    await poManager.getSiteListingsPage().selectSite(testData.site);
-    await poManager.getDashboardPage().isOnDashboardPage();
-    return beforePage;
-}
