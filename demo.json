@@ -1,0 +1,125 @@
+{
+  "cookies": [
+    {
+      "name": "SERVERID",
+      "value": "2",
+      "domain": "platform.productsup.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gid",
+      "value": "GA1.2.762483855.1678372670",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1678459073,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat",
+      "value": "1",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1678372730,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "SERVERID",
+      "value": "3",
+      "domain": "api-frontend.productsup.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "REMEMBERME",
+      "value": "QXBwXEVudGl0eVxVc2VyOmMzVnVaMmhwYkd3dWNHRjBjblZ1YVN0aGRYUnZiV0YwYVc5dVFIQnliMlIxWTNSemRYQXVZMjl0OjE2ODYyNjI2NzM6YTI1YWIwZGU4ZTNhMGNiNWYxMWYzY2E1N2YzYmY5YmUwNTEyMzU3YjdmYjdhNjk1YmMzMzU0NmEzMzQxNWE4ZQ%3D%3D",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1686262672.745974,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "PHPSESSID",
+      "value": "noqtg21qa8kck93i2b90q8cv3h",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1678459072.746176,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_hp2_id.4246415516",
+      "value": "%7B%22userId%22%3A%225355559525803622%22%2C%22pageviewId%22%3A%224570512010308336%22%2C%22sessionId%22%3A%223299966869882659%22%2C%22identity%22%3A%2226132%22%2C%22trackerVersion%22%3A%224.0%22%2C%22identityField%22%3Anull%2C%22isIdentified%22%3A1%7D",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1712450273,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.252369880.1678372670",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1712932673.574799,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_J0MLX6DD8K",
+      "value": "GS1.1.1678372670.1.1.1678372673.0.0.0",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1712932673.578934,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_hp2_ses_props.4246415516",
+      "value": "%7B%22r%22%3A%22https%3A%2F%2Flogin.productsup.com%2F%22%2C%22ts%22%3A1678372673566%2C%22d%22%3A%22platform.productsup.com%22%2C%22h%22%3A%22%2Faccount%2F7040%22%7D",
+      "domain": ".productsup.com",
+      "path": "/",
+      "expires": 1678374474,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "io",
+      "value": "QBpfLyTCkJ8UkyuiAA6Z",
+      "domain": "ws-01.productsup.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://platform.productsup.com",
+      "localStorage": [
+        {
+          "name": "UII-26132",
+          "value": "{\"search\":\"\",\"searchType\":{},\"filter\":[\"0\",\"1\",\"-1\",\"-2\"],\"statusFilter\":[\"1\",\"0\",\"-1\"],\"accountId\":7040,\"view\":\"view-2\",\"projectId\":null,\"pagination\":{},\"extraFilter\":{\"export\":{\"key\":\"\",\"value\":\"\",\"type\":\"\"},\"tag\":{\"key\":\"\",\"value\":\"\"}},\"changePage\":false,\"sort\":{\"column\":\"id\",\"descending\":false},\"showProjects\":[]}"
+        }
+      ]
+    }
+  ]
+}

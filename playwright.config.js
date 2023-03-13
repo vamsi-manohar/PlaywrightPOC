@@ -11,13 +11,13 @@ const config = {
     open: 'never'
   }],['allure-playwright']],
   
-  // fullyParallel: false,
+  fullyParallel: false,
  //reporter: [['html', {outputFolder:`/Users/vamsimanohar/playwrightJS/${Date.now()}`}], ['list']],
   use: {
  
     browserName: 'chromium',
-    headless: false,
-    screenshot: 'only-on-failure',
+    headless: true,
+    screenshot: 'on',
     trace: 'retain-on-failure',
     video: 'on',
     //viewport: {width: 1440, height: 900},

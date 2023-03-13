@@ -35,12 +35,18 @@ class AppCommunication{
     {
         await expect(this.links.first()).toBeVisible();
         const [helpCenterPage] = await Promise.all([
+               
               this.page.waitForEvent("popup"),
+             
               await this.links.first().click()
+     
+             
         ])
-        await helpCenterPage.waitForLoadState();
+        await this.page.close();
+      
+        await helpCenterPage.waitForLoadState();        
         const text = await helpCenterPage.locator("header[class*='header'] h1").textContent();
-        this.page.close();
+        //await helpCenterPage.close();
         return text;
         //return await helpCenterPage.locator("header[class*='header'] h1").textContent();
       

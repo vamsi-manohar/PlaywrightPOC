@@ -1,0 +1,40 @@
+name: playwright tests
+on:
+  push:
+    branches: [main]
+jobs:
+  npm-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 19.*
+        if: always()
+      - run: docker build . --file Dockerfile.focal -t main-image
+      - run: docker run -d --name mainContainer main-image
+      - run: sudo docker cp mainContainer:./tests/allure-results allure-results
+      - uses: actions/upload-artifact@master
+        with:
+          name: allure-results
+          path: allure-results
+      - uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - uses: simple-elf/allure-report-action@main
+        if: always()
+        id: allure-report
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+      - uses: peaceiris/actions-gh-pages@v2
+        if: always()
+        env: 
+          PERSONAL_TOKEN: ${{ secrets.MY_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR:  allure-history
