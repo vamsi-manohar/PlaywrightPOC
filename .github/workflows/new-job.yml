@@ -8,7 +8,8 @@ jobs:
     name: Run end-to-end tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        run: git clone https://github.com/vamsi-manohar/PlaywrightPOC.git
       - name: Install Node.js 19.x
         run: |
           curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
