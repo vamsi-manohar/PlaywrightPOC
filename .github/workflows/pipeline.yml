@@ -1,7 +1,9 @@
 name: playwright tests
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+    repository_owner: vamsi-manohar
 jobs:
   npm-test:
     runs-on: ubuntu-latest
